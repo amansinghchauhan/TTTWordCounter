@@ -10,7 +10,7 @@
         - Lastly, I created another array that will be sent to the frontend that have the list of the words along with their frequencies.
         
 ## Frontend:
-        - The Frontend is developed with HTML, CSS, and AngularJS.
+        - The Frontend is developed with HTML, CSS, Bootstrap, and AngularJS.
         - The file is present at app/routes/index.html
         - When the user clicks the Submit button, if the input field is NULL, empty the Table.
         - If the input value is greater than 0, call the nodeJS route and use "ng-repeat" to display the received data in Tabular Form.
