@@ -41,9 +41,7 @@
       </div>
     </div>
   </form>
-  <table id="tableList"  class="table table-hover text-center">
-
-</table>
+  <table id="tableList"  class="table table-hover text-center"></table>
 </div>
 
 <script>
@@ -52,13 +50,17 @@
     $scope.getTable = function(){
       console.log($scope.numIn);
       if (!$scope.numIn) {
+        // Empty the table if the Input is NULL
         angular.element(document.getElementById('tableList')).html( $compile("")($scope));
         return false;
       }
       if ($scope.numIn > 0) {
+        // Get the list of top 'N' words with their frequencies from the backend
         $http.get("check/"+$scope.numIn)
         .then(function (response) {$scope.rec = response.data;});
+        //HTML tags for tabular data
         var html='<thead><tr><th>Word</th><th>Frequency</th></thead><tbody></tr><tr ng-repeat="x in rec"><td>{{ x.word }}</td><td>{{ x.frequency }}</td></tr></tbody>';
+        //Adding the Table content on the page
         angular.element(document.getElementById('tableList')).html( $compile(html)($scope));
       }
     }

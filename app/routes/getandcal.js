@@ -48,18 +48,13 @@ module.exports = function(app){
 
   app.get('/', (req, res) => {
     res.sendFile(__dirname + '/' + 'index.html');
-    //res.send("This isn't the page you were supposed to get.")
-  });
-
-  app.get('/data', (req, res) => {
-    res.sendFile(__dirname + '/' + 'data.php');
   });
 
   app.get('/check', (req, res) => {
     res.send("Please pass the number 'N' for the number of words.")
   });
 
-  // Compare function to order the element
+  // Compare function to order the elements
   function GetSortOrder(prop) {
     return function(a, b) {
         if (a[prop] > b[prop]) {
