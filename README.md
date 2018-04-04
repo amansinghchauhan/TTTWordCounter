@@ -1,3 +1,5 @@
+# Check [https://ttt-words.herokuapp.com/](https://ttt-words.herokuapp.com/) for demo
+
 ## Backend:
         - Code is written in nodeJS
         - All the ROUTES are create in the "app/routes" directory
@@ -13,4 +15,30 @@
         - When the user clicks the Submit button, if the input field is NULL, empty the Table.
         - If the input value is greater than 0, call the nodeJS route and use "ng-repeat" to display the received data in Tabular Form.
         
-# Check [https://ttt-words.herokuapp.com/](https://ttt-words.herokuapp.com/) for demo
+
+
+## Test Cases:
+
+1) Input NULL: 
+        The HTML inside the table will be emptied
+        ![NULL](img/NULL.png)
+
+2) Input 0: 
+        The HTML inside the table will be emptied
+        ![0](img/0.png)
+
+3) Input 3: 
+        3 rows will be returned and will be added to the Table.
+        ![3](img/3.png)
+
+4) Input 7: 
+        7 rows will be returned and will be added to the Table.
+        ![7](img/7.png)
+
+5) Input 20: 
+        20 rows will be returned and will be added to the Table.
+        ![20](img/20.png)
+
+6) Input -2: 
+        The HTML inside the table will be emptied
+        ![-2](img/-2.png)
