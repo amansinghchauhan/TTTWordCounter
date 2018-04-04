@@ -49,7 +49,7 @@
   app.controller('myCtrl', function($scope, $http, $compile) {
     $scope.getTable = function(){
       console.log($scope.numIn);
-      if (!$scope.numIn) {
+      if (!$scope.numIn || $scope.numIn < 0) {
         // Empty the table if the Input is NULL
         angular.element(document.getElementById('tableList')).html( $compile("")($scope));
         return false;
