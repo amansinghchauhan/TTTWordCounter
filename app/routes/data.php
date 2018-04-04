@@ -1,0 +1,1 @@
+[{"word":"i","frequency":27},{"word":"a","frequency":24},{"word":"to","frequency":23},{"word":"you","frequency":22},{"word":"can","frequency":18},{"word":"and","frequency":16},{"word":"at","frequency":15},{"word":"the","frequency":15},{"word":"us","frequency":13},{"word":"of","frequency":13}]

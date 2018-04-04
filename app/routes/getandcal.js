@@ -47,7 +47,12 @@ module.exports = function(app){
   });
 
   app.get('/', (req, res) => {
-    res.send("This isn't the page you were supposed to get.")
+    res.sendFile(__dirname + '/' + 'index.html');
+    //res.send("This isn't the page you were supposed to get.")
+  });
+
+  app.get('/data', (req, res) => {
+    res.sendFile(__dirname + '/' + 'data.php');
   });
 
   app.get('/check', (req, res) => {

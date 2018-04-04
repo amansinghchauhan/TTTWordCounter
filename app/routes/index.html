@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TTT Word Counter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <style>
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+      background-color: #f4511e;
+  }
+  .jumbotron {
+      background-color: #f4511e;
+      color: #fff;
+      padding: 100px 25px;
+      height: 100%;
+      font-family: Montserrat, sans-serif;
+  }
+  th {
+    text-align: center !important;
+  }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center container" ng-app="myApp" ng-controller="myCtrl">
+  <h1>TTT Word Counter</h1>
+  <p>Enter the Number of Words you want to check the frequency for</p>
+  <form>
+    <div class="input-group">
+      <input type="number" class="form-control" size="50" placeholder="Number of Words" required ng-model='numIn'>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-danger" ng-click="getTable()">Search</button>
+      </div>
+    </div>
+  </form>
+  <table id="tableList"  class="table table-hover text-center">
+
+</table>
+</div>
+
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope, $http, $compile) {
+    $scope.getTable = function(){
+      console.log($scope.numIn);
+      if (!$scope.numIn) {
+        angular.element(document.getElementById('tableList')).html( $compile("")($scope));
+        return false;
+      }
+      if ($scope.numIn > 0) {
+        $http.get("check/"+$scope.numIn)
+        .then(function (response) {$scope.rec = response.data;});
+        var html='<thead><tr><th>Word</th><th>Frequency</th></thead><tbody></tr><tr ng-repeat="x in rec"><td>{{ x.word }}</td><td>{{ x.frequency }}</td></tr></tbody>';
+        angular.element(document.getElementById('tableList')).html( $compile(html)($scope));
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
